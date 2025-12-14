@@ -151,12 +151,15 @@
         .testimonial-role { font-size: 0.8rem; color: rgba(255,255,255,0.6); }
         @keyframes testimonialScroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
-        .coverage { padding: 6rem 2rem; background: var(--bg-deep); }
-        .coverage-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1.5rem; max-width: 1000px; margin: 0 auto; }
-        .coverage-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 2rem 1.5rem; text-align: center; position: relative; overflow: hidden; }
+        .coverage { padding: 6rem 0; background: var(--bg-deep); overflow: hidden; }
+        .coverage .section-header { padding: 0 2rem; }
+        .coverage-scroll { overflow: hidden; margin-top: 3rem; }
+        .coverage-track { display: flex; gap: 1.5rem; animation: coverageScroll 25s linear infinite; }
+        .coverage-card { flex-shrink: 0; width: 180px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 2rem 1.5rem; text-align: center; position: relative; overflow: hidden; }
         .coverage-card svg { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 80%; height: 80%; opacity: 0.08; color: var(--gold); }
         .coverage-city { position: relative; font-family: var(--font-display); font-size: 1.1rem; font-weight: bold; color: var(--text-bright); margin-bottom: 0.25rem; }
         .coverage-region { position: relative; font-size: 0.8rem; color: var(--text-muted); }
+        @keyframes coverageScroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
         .stats { padding: 4rem 2rem; background: var(--bg-void); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
         .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; max-width: 900px; margin: 0 auto; text-align: center; }
@@ -169,7 +172,7 @@
         .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease; }
         .gallery-item:hover img { transform: scale(1.05); }
 
-        .contact { padding: 6rem 2rem; background: var(--bg-void); }
+        .contact { padding: 6rem 2rem; background: linear-gradient(rgba(10, 9, 8, 0.9), rgba(10, 9, 8, 0.9)), url('img-ballroom.jpg') center/cover no-repeat; position: relative; }
         .contact-grid { display: grid; grid-template-columns: 1fr 300px; gap: 4rem; max-width: 1000px; margin: 0 auto; }
         .contact-form { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 2rem; }
         .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
@@ -285,21 +288,6 @@
         </div>
     </section>
 
-    <section class="formatter" id="tool">
-        <div class="section-header"><div class="section-label">Free Tool</div><h2 class="section-title">Script Formatter</h2></div>
-        <div class="formatter-container">
-            <div class="formatter-box" id="uploadZone">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M17 8l-5-5-5 5M12 3v12"/></svg>
-                <p>Drop Script Here</p><small>TXT or DOCX files</small>
-                <input type="file" id="scriptFile" accept=".txt,.docx">
-            </div>
-            <div class="formatter-output" id="toolOutput">
-                <div class="formatter-preview" id="outputPreview"></div>
-                <div class="formatter-buttons"><button class="btn btn-primary" id="downloadBtn">Download RTF</button><button class="btn btn-secondary" id="resetBtn">Format Another</button></div>
-            </div>
-        </div>
-    </section>
-
     <section class="clients">
         <div class="section-header"><div class="section-label">We've Prompted For</div><h2 class="section-title">Some Pretty Cool People</h2></div>
         <div class="marquee-container">
@@ -331,13 +319,21 @@
 
     <section class="coverage" id="coverage">
         <div class="section-header"><div class="section-label">Service Area</div><h2 class="section-title">Serving New York and Beyond</h2></div>
-        <div class="coverage-grid">
-            <div class="coverage-card"><svg viewBox="0 0 100 100"><rect x="30" y="20" width="15" height="60" fill="currentColor"/><rect x="48" y="10" width="12" height="70" fill="currentColor"/><rect x="63" y="25" width="10" height="55" fill="currentColor"/></svg><div class="coverage-city">New York City</div><div class="coverage-region">Five Boroughs</div></div>
-            <div class="coverage-card"><svg viewBox="0 0 100 100"><rect x="25" y="30" width="50" height="50" rx="2" fill="currentColor"/></svg><div class="coverage-city">Buffalo</div><div class="coverage-region">Western NY</div></div>
-            <div class="coverage-card"><svg viewBox="0 0 100 100"><polygon points="50,15 80,40 80,85 20,85 20,40" fill="currentColor"/></svg><div class="coverage-city">Albany</div><div class="coverage-region">Capital Region</div></div>
-            <div class="coverage-card"><svg viewBox="0 0 100 100"><rect x="20" y="35" width="60" height="45" fill="currentColor"/></svg><div class="coverage-city">Syracuse</div><div class="coverage-region">Central NY</div></div>
-            <div class="coverage-card"><svg viewBox="0 0 100 100"><rect x="25" y="30" width="20" height="50" fill="currentColor"/><rect x="50" y="40" width="25" height="40" fill="currentColor"/></svg><div class="coverage-city">Rochester</div><div class="coverage-region">Finger Lakes</div></div>
-            <div class="coverage-card"><svg viewBox="0 0 100 100"><path d="M10 50 Q30 30 50 50 Q70 70 90 50" stroke="currentColor" fill="none" stroke-width="8"/></svg><div class="coverage-city">+ Statewide</div><div class="coverage-region">& Northeast</div></div>
+        <div class="coverage-scroll">
+            <div class="coverage-track">
+                <div class="coverage-card"><svg viewBox="0 0 100 100"><rect x="30" y="20" width="15" height="60" fill="currentColor"/><rect x="48" y="10" width="12" height="70" fill="currentColor"/><rect x="63" y="25" width="10" height="55" fill="currentColor"/></svg><div class="coverage-city">New York City</div><div class="coverage-region">Five Boroughs</div></div>
+                <div class="coverage-card"><svg viewBox="0 0 100 100"><rect x="25" y="30" width="50" height="50" rx="2" fill="currentColor"/></svg><div class="coverage-city">Buffalo</div><div class="coverage-region">Western NY</div></div>
+                <div class="coverage-card"><svg viewBox="0 0 100 100"><polygon points="50,15 80,40 80,85 20,85 20,40" fill="currentColor"/></svg><div class="coverage-city">Albany</div><div class="coverage-region">Capital Region</div></div>
+                <div class="coverage-card"><svg viewBox="0 0 100 100"><rect x="20" y="35" width="60" height="45" fill="currentColor"/></svg><div class="coverage-city">Syracuse</div><div class="coverage-region">Central NY</div></div>
+                <div class="coverage-card"><svg viewBox="0 0 100 100"><rect x="25" y="30" width="20" height="50" fill="currentColor"/><rect x="50" y="40" width="25" height="40" fill="currentColor"/></svg><div class="coverage-city">Rochester</div><div class="coverage-region">Finger Lakes</div></div>
+                <div class="coverage-card"><svg viewBox="0 0 100 100"><path d="M10 50 Q30 30 50 50 Q70 70 90 50" stroke="currentColor" fill="none" stroke-width="8"/></svg><div class="coverage-city">+ Statewide</div><div class="coverage-region">& Northeast</div></div>
+                <div class="coverage-card"><svg viewBox="0 0 100 100"><rect x="30" y="20" width="15" height="60" fill="currentColor"/><rect x="48" y="10" width="12" height="70" fill="currentColor"/><rect x="63" y="25" width="10" height="55" fill="currentColor"/></svg><div class="coverage-city">New York City</div><div class="coverage-region">Five Boroughs</div></div>
+                <div class="coverage-card"><svg viewBox="0 0 100 100"><rect x="25" y="30" width="50" height="50" rx="2" fill="currentColor"/></svg><div class="coverage-city">Buffalo</div><div class="coverage-region">Western NY</div></div>
+                <div class="coverage-card"><svg viewBox="0 0 100 100"><polygon points="50,15 80,40 80,85 20,85 20,40" fill="currentColor"/></svg><div class="coverage-city">Albany</div><div class="coverage-region">Capital Region</div></div>
+                <div class="coverage-card"><svg viewBox="0 0 100 100"><rect x="20" y="35" width="60" height="45" fill="currentColor"/></svg><div class="coverage-city">Syracuse</div><div class="coverage-region">Central NY</div></div>
+                <div class="coverage-card"><svg viewBox="0 0 100 100"><rect x="25" y="30" width="20" height="50" fill="currentColor"/><rect x="50" y="40" width="25" height="40" fill="currentColor"/></svg><div class="coverage-city">Rochester</div><div class="coverage-region">Finger Lakes</div></div>
+                <div class="coverage-card"><svg viewBox="0 0 100 100"><path d="M10 50 Q30 30 50 50 Q70 70 90 50" stroke="currentColor" fill="none" stroke-width="8"/></svg><div class="coverage-city">+ Statewide</div><div class="coverage-region">& Northeast</div></div>
+            </div>
         </div>
     </section>
 
@@ -347,6 +343,21 @@
             <div><div class="stat-value">5</div><div class="stat-label">State Network</div></div>
             <div><div class="stat-value">1000s</div><div class="stat-label">Shows Completed</div></div>
             <div><div class="stat-value">100%</div><div class="stat-label">Professional Ops</div></div>
+        </div>
+    </section>
+
+    <section class="formatter" id="tool">
+        <div class="section-header"><div class="section-label">Free Tool</div><h2 class="section-title">Script Formatter</h2></div>
+        <div class="formatter-container">
+            <div class="formatter-box" id="uploadZone">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M17 8l-5-5-5 5M12 3v12"/></svg>
+                <p>Drop Script Here</p><small>TXT or DOCX files</small>
+                <input type="file" id="scriptFile" accept=".txt,.docx">
+            </div>
+            <div class="formatter-output" id="toolOutput">
+                <div class="formatter-preview" id="outputPreview"></div>
+                <div class="formatter-buttons"><button class="btn btn-primary" id="downloadBtn">Download RTF</button><button class="btn btn-secondary" id="resetBtn">Format Another</button></div>
+            </div>
         </div>
     </section>
 
