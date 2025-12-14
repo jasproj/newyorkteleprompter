@@ -131,6 +131,26 @@
         .formatter-preview { background: var(--bg-elevated); border: 1px solid var(--border); border-radius: 8px; padding: 1.5rem; max-height: 200px; overflow-y: auto; text-align: left; font-family: monospace; font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1rem; white-space: pre-wrap; }
         .formatter-buttons { display: flex; gap: 1rem; justify-content: center; }
 
+        .clients { padding: 6rem 2rem; background: var(--bg-void); overflow: hidden; }
+        .marquee-container { display: flex; flex-direction: column; gap: 1rem; margin-top: 3rem; }
+        .marquee { display: flex; gap: 1.5rem; animation: marqueeScroll 30s linear infinite; }
+        .marquee-reverse { animation-direction: reverse; }
+        .marquee-item { flex-shrink: 0; padding: 0.75rem 1.5rem; background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; font-size: 0.95rem; color: var(--text-secondary); white-space: nowrap; transition: all 0.3s ease; }
+        .marquee-item:hover { border-color: var(--gold); color: var(--text-bright); }
+        @keyframes marqueeScroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+        .testimonials { padding: 6rem 0; background: linear-gradient(135deg, #1a365d 0%, #2c5282 50%, #1a365d 100%); overflow: hidden; }
+        .testimonials .section-header { padding: 0 2rem; }
+        .testimonials .section-title { color: #fff; }
+        .testimonials-scroll { margin-top: 3rem; overflow: hidden; }
+        .testimonials-track { display: flex; gap: 1.5rem; animation: testimonialScroll 40s linear infinite; }
+        .testimonial-card { flex-shrink: 0; width: 350px; background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.15); border-radius: 12px; padding: 2rem; }
+        .testimonial-quote { font-size: 0.95rem; color: rgba(255,255,255,0.9); line-height: 1.7; margin-bottom: 1.5rem; font-style: italic; }
+        .testimonial-author { display: flex; flex-direction: column; gap: 0.25rem; }
+        .testimonial-name { font-weight: 600; font-size: 0.9rem; color: #fff; }
+        .testimonial-role { font-size: 0.8rem; color: rgba(255,255,255,0.6); }
+        @keyframes testimonialScroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
         .coverage { padding: 6rem 2rem; background: var(--bg-deep); }
         .coverage-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1.5rem; max-width: 1000px; margin: 0 auto; }
         .coverage-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 2rem 1.5rem; text-align: center; position: relative; overflow: hidden; }
@@ -280,6 +300,35 @@
         </div>
     </section>
 
+    <section class="clients">
+        <div class="section-header"><div class="section-label">We've Prompted For</div><h2 class="section-title">Some Pretty Cool People</h2></div>
+        <div class="marquee-container">
+            <div class="marquee"><div class="marquee-item">Tony Dungy</div><div class="marquee-item">Tim Tebow</div><div class="marquee-item">Disney</div><div class="marquee-item">John Travolta</div><div class="marquee-item">Shaquille O'Neal</div><div class="marquee-item">AmeriLife</div><div class="marquee-item">Tampa Bay Buccaneers</div><div class="marquee-item">Tony Dungy</div><div class="marquee-item">Tim Tebow</div><div class="marquee-item">Disney</div><div class="marquee-item">John Travolta</div><div class="marquee-item">Shaquille O'Neal</div><div class="marquee-item">AmeriLife</div><div class="marquee-item">Tampa Bay Buccaneers</div></div>
+            <div class="marquee marquee-reverse"><div class="marquee-item">Morton Plant Hospital</div><div class="marquee-item">Toronto Blue Jays</div><div class="marquee-item">Jose Bautista</div><div class="marquee-item">John Cena</div><div class="marquee-item">NASCAR</div><div class="marquee-item">Ford</div><div class="marquee-item">Liza Minnelli</div><div class="marquee-item">Diana Ross</div><div class="marquee-item">Morton Plant Hospital</div><div class="marquee-item">Toronto Blue Jays</div><div class="marquee-item">Jose Bautista</div><div class="marquee-item">John Cena</div><div class="marquee-item">NASCAR</div><div class="marquee-item">Ford</div><div class="marquee-item">Liza Minnelli</div><div class="marquee-item">Diana Ross</div></div>
+            <div class="marquee"><div class="marquee-item">NHL All-Star Game</div><div class="marquee-item">Publix</div><div class="marquee-item">Home Depot</div><div class="marquee-item">Mindvalley</div><div class="marquee-item">NHL All-Star Game</div><div class="marquee-item">Publix</div><div class="marquee-item">Home Depot</div><div class="marquee-item">Mindvalley</div><div class="marquee-item">NHL All-Star Game</div><div class="marquee-item">Publix</div><div class="marquee-item">Home Depot</div><div class="marquee-item">Mindvalley</div></div>
+        </div>
+    </section>
+
+    <section class="testimonials">
+        <div class="section-header"><div class="section-label">Client Reviews</div><h2 class="section-title">What People Say</h2></div>
+        <div class="testimonials-scroll">
+            <div class="testimonials-track">
+                <div class="testimonial-card"><p class="testimonial-quote">"Professional, reliable, and great with talent. They understand the pressure of live events and always deliver flawless execution."</p><div class="testimonial-author"><span class="testimonial-name">Production Director</span><span class="testimonial-role">Corporate Events Agency</span></div></div>
+                <div class="testimonial-card"><p class="testimonial-quote">"The go-to teleprompter service for our broadcast productions. Easy to work with and consistently delivers the best possible service."</p><div class="testimonial-author"><span class="testimonial-name">Executive Producer</span><span class="testimonial-role">Regional Broadcast Network</span></div></div>
+                <div class="testimonial-card"><p class="testimonial-quote">"Found them on a whim and they've quickly become my most reliable teleprompter service provider. By far the best in the region."</p><div class="testimonial-author"><span class="testimonial-name">Video Production Lead</span><span class="testimonial-role">Creative Agency</span></div></div>
+                <div class="testimonial-card"><p class="testimonial-quote">"They saved our live broadcast when our usual vendor cancelled last minute. Showed up early, knew exactly what to do, flawless execution."</p><div class="testimonial-author"><span class="testimonial-name">News Director</span><span class="testimonial-role">Local TV Station</span></div></div>
+                <div class="testimonial-card"><p class="testimonial-quote">"Our CEO was nervous about his keynote. Their operator put him completely at ease. Best investment we made for the shareholder meeting."</p><div class="testimonial-author"><span class="testimonial-name">Executive Assistant</span><span class="testimonial-role">Fortune 500 Company</span></div></div>
+                <div class="testimonial-card"><p class="testimonial-quote">"We've used them for three national tours now. Consistent quality in every city, every venue. They're part of our standard production package."</p><div class="testimonial-author"><span class="testimonial-name">Tour Manager</span><span class="testimonial-role">Live Entertainment Company</span></div></div>
+                <div class="testimonial-card"><p class="testimonial-quote">"Professional, reliable, and great with talent. They understand the pressure of live events and always deliver flawless execution."</p><div class="testimonial-author"><span class="testimonial-name">Production Director</span><span class="testimonial-role">Corporate Events Agency</span></div></div>
+                <div class="testimonial-card"><p class="testimonial-quote">"The go-to teleprompter service for our broadcast productions. Easy to work with and consistently delivers the best possible service."</p><div class="testimonial-author"><span class="testimonial-name">Executive Producer</span><span class="testimonial-role">Regional Broadcast Network</span></div></div>
+                <div class="testimonial-card"><p class="testimonial-quote">"Found them on a whim and they've quickly become my most reliable teleprompter service provider. By far the best in the region."</p><div class="testimonial-author"><span class="testimonial-name">Video Production Lead</span><span class="testimonial-role">Creative Agency</span></div></div>
+                <div class="testimonial-card"><p class="testimonial-quote">"They saved our live broadcast when our usual vendor cancelled last minute. Showed up early, knew exactly what to do, flawless execution."</p><div class="testimonial-author"><span class="testimonial-name">News Director</span><span class="testimonial-role">Local TV Station</span></div></div>
+                <div class="testimonial-card"><p class="testimonial-quote">"Our CEO was nervous about his keynote. Their operator put him completely at ease. Best investment we made for the shareholder meeting."</p><div class="testimonial-author"><span class="testimonial-name">Executive Assistant</span><span class="testimonial-role">Fortune 500 Company</span></div></div>
+                <div class="testimonial-card"><p class="testimonial-quote">"We've used them for three national tours now. Consistent quality in every city, every venue. They're part of our standard production package."</p><div class="testimonial-author"><span class="testimonial-name">Tour Manager</span><span class="testimonial-role">Live Entertainment Company</span></div></div>
+            </div>
+        </div>
+    </section>
+
     <section class="coverage" id="coverage">
         <div class="section-header"><div class="section-label">Service Area</div><h2 class="section-title">Serving New York and Beyond</h2></div>
         <div class="coverage-grid">
@@ -326,7 +375,7 @@
                 <button type="submit" class="form-submit">Submit Request</button>
             </form>
             <div class="contact-info">
-                <div class="contact-info-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg><div><div class="contact-info-label">Email</div><a href="mailto:jason@floridateleprompter.com">jason@floridateleprompter.com</a></div></div>
+                <div class="contact-info-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg><div><div class="contact-info-label">Email</div><a href="/cdn-cgi/l/email-protection#cea4afbda1a08ea8a2a1bca7aaafbaaba2abbebca1a3bebaabbce0ada1a3"><span class="__cf_email__" data-cfemail="0963687a6667496f65667b606d687d6c656c797b6664797d6c7b276a6664">[email&#160;protected]</span></a></div></div>
                 <div class="contact-info-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.362 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg><div><div class="contact-info-label">Phone</div><a href="tel:727-623-2652">727-623-2652</a></div></div>
                 <div class="contact-info-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg><div><div class="contact-info-label">Response Time</div><span style="color: var(--text-primary)">Within 24 hours</span></div></div>
             </div>
@@ -341,14 +390,14 @@
             </div>
             <div class="footer-column"><h4>Network</h4><ul><li><a href="https://floridateleprompter.com">Florida</a></li><li><a href="https://ohioteleprompter.com">Ohio</a></li><li><a href="https://georgiateleprompter.com">Georgia</a></li><li><a href="https://pennsylvaniateleprompter.com">Pennsylvania</a></li></ul></div>
             <div class="footer-column"><h4>Company</h4><ul><li><a href="about.html">About</a></li><li><a href="privacy.html">Privacy Policy</a></li><li><a href="terms.html">Terms of Service</a></li></ul></div>
-            <div class="footer-column"><h4>Contact</h4><ul><li><a href="tel:727-623-2652">727-623-2652</a></li><li><a href="mailto:jason@floridateleprompter.com">jason@floridateleprompter.com</a></li></ul></div>
+            <div class="footer-column"><h4>Contact</h4><ul><li><a href="tel:727-623-2652">727-623-2652</a></li><li><a href="/cdn-cgi/l/email-protection#325853415d5c72545e5d405b565346575e5742405d5f424657401c515d5f"><span class="__cf_email__" data-cfemail="d3b9b2a0bcbd93b5bfbca1bab7b2a7b6bfb6a3a1bcbea3a7b6a1fdb0bcbe">[email&#160;protected]</span></a></li></ul></div>
         </div>
         <div class="footer-bottom"><span>© 2025 New York Teleprompter LLC. All rights reserved.</span><span>A subsidiary of <a href="https://cladutacorp.com">Claduta Corp</a> · Part of <a href="https://nationalteleprompter.com">National Teleprompter</a></span></div>
     </footer>
 
     <div class="lightbox" id="lightbox"><button class="lightbox-close">&times;</button><img src="" alt="Gallery image"></div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.6.0/mammoth.browser.min.js"></script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.6.0/mammoth.browser.min.js"></script>
     <script>
         const mobileToggle=document.querySelector('.mobile-toggle'),mobileMenu=document.querySelector('.mobile-menu');mobileToggle?.addEventListener('click',()=>{mobileMenu.classList.toggle('active');document.body.style.overflow=mobileMenu.classList.contains('active')?'hidden':'';});mobileMenu?.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{mobileMenu.classList.remove('active');document.body.style.overflow='';}));
         document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',function(e){e.preventDefault();const t=document.querySelector(this.getAttribute('href'));if(t)window.scrollTo({top:t.offsetTop-80,behavior:'smooth'});});});
@@ -357,7 +406,4 @@
         async function processFile(file){let text='';if(file.name.endsWith('.docx')){const ab=await file.arrayBuffer();const r=await mammoth.extractRawText({arrayBuffer:ab});text=r.value;}else{text=await file.text();}formattedText=text.replace(/\. /g,'.\n\n').replace(/\? /g,'?\n\n').replace(/\! /g,'!\n\n').replace(/\: /g,':\n\n').replace(/Mr\.\n\n/g,'Mr. ').replace(/Mrs\.\n\n/g,'Mrs. ').replace(/Dr\.\n\n/g,'Dr. ').replace(/Ms\.\n\n/g,'Ms. ').replace(/vs\.\n\n/g,'vs. ').replace(/U\.S\.\n\n/g,'U.S. ');outputPreview.textContent=formattedText.substring(0,500)+(formattedText.length>500?'...':'');uploadZone.style.display='none';toolOutput.classList.add('active');}
         downloadBtn?.addEventListener('click',()=>{const rtf='{\\rtf1\\ansi\\deff0 {\\fonttbl {\\f0 Arial;}}\\f0\\fs48 '+formattedText.replace(/\n/g,'\\par ').replace(/[\\{}]/g,'\\$&')+'}';const b=new Blob([rtf],{type:'application/rtf'});const u=URL.createObjectURL(b);const a=document.createElement('a');a.href=u;a.download='formatted-script.rtf';a.click();URL.revokeObjectURL(u);});
         resetBtn?.addEventListener('click',()=>{uploadZone.style.display='block';toolOutput.classList.remove('active');scriptFile.value='';formattedText='';});
-        const lightbox=document.getElementById('lightbox'),lightboxImg=lightbox?.querySelector('img'),lightboxClose=lightbox?.querySelector('.lightbox-close');document.querySelectorAll('.gallery-item').forEach(item=>{item.addEventListener('click',()=>{const img=item.querySelector('img');lightboxImg.src=img.src;lightboxImg.alt=img.alt;lightbox.classList.add('active');document.body.style.overflow='hidden';});});lightboxClose?.addEventListener('click',()=>{lightbox.classList.remove('active');document.body.style.overflow='';});lightbox?.addEventListener('click',e=>{if(e.target===lightbox){lightbox.classList.remove('active');document.body.style.overflow='';}});
-    </script>
-</body>
-</html>
+        const lightbox=document.getElementById('lightbox'),lightboxImg=lightbox?.querySelector('img'),lightboxClose=lightbox?.querySelector('.lightbox-close');document.querySelectorAll('.gallery-item').forEach(item=>{item.addEventListener('click',()=>{const img=item.querySelec
