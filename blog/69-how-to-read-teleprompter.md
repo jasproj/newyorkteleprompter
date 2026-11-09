@@ -3,6 +3,7 @@ layout: default
 title: "How to Read a Teleprompter Like a Pro"
 description: "Master teleprompter reading with techniques used by news anchors and professional speakers. Tips for natural delivery, eye movement, and building confidence."
 canonical: "/blog/how-to-read-teleprompter.html"
+robots: "noindex, follow"
 ---
 
 # How to Read a Teleprompter Like a Pro
